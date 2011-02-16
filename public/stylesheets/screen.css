@@ -23,6 +23,8 @@ h1 {
   display: table;
   margin-left: auto;
   margin-right: auto;
+
+  height: 200px;
 }
 
 .signup h2 {
