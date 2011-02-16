@@ -1,0 +1,71 @@
+<h1>Coming Soon</h1>
+
+<div align="center">
+  <div class="landing-photo">
+    <img src="/images/landing.png" alt="Mel and Brad" />
+  </div>
+</div>
+
+<div class="signup">
+  <h2>We will let you know when its ready!</h2>
+  <p>Leave your email address and we will notify you when our website is ready.</p>
+
+  <div class="form">
+    <input type="text" id="email" /> <button type="button" id="sign-up">Sign Up</button>
+  </div>
+</div> 
+
+<% content_for :javascript do %>
+<script type="text/javascript">
+var progressImg = new Image();
+progressImg.src = '/images/progress.gif';
+
+$('button#sign-up').live('click', function() {
+  var emailInput = $('input#email');
+
+  if(emailInput.val() == '') {
+    return;
+  }
+
+  $(this).parents('.form').fadeOut('fast', function() {
+    var div = $('<div/>').attr('align', 'center');
+    div.append($(progressImg));
+    div.hide();
+
+    $(this).after(div);
+    div.fadeIn('fast', function() {
+      var formDiv = $(this).siblings('.form');
+
+			$.ajax({
+				url: '<%= newsletter_signup_path %>',
+				data: { email: emailInput.val() },
+				type: 'POST',
+				error: function(data) {
+					div.fadeOut('fast', function() { 
+            formDiv.fadeIn('fast'); 
+            $(this).remove();   
+          });
+
+					var errors = JSON.parse(data.responseText);
+					var span = $('<span/>').addClass('error').text(errors.message.email);
+					formDiv.append(span);
+					
+					$('#sign-up').click(function() { span.fadeOut('fast', function() { $(this).remove(); }) });
+					$('#email').keypress(function() { span.fadeOut('fast', function() { $(this).remove(); }) });
+				},
+				success: function(data) {
+					div.fadeOut('fast', function() {
+						var span = $('<span/>').addClass('note').text('Hurray! Thanks for signing up.');
+
+            span.hide();
+						formDiv.before(span);
+            span.fadeIn('fast');
+					});					
+				}
+			});
+    });
+
+  });
+});
+</script>
+<% end %>

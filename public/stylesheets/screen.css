@@ -1,0 +1,73 @@
+body {
+  font-family: Georgia; 
+}
+
+.landing-photo {
+  padding: 10pt;
+  background-color: #ebebeb;
+
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.landing-photo, .landing-photo img {
+  border: 1px #ccc solid;
+}
+
+.signup {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.signup h2 {
+  margin-bottom: 0;
+} 
+
+.signup p {
+  width: 518px;
+  margin-top: 0;
+  font-family: arial;
+  font-style: italic;
+}
+
+.signup input {
+  width: 400px;
+  font-size: 16pt;
+} 
+
+.signup button {
+  font-size: 16pt;
+  background-color: #ebebeb;
+  border: 1px #ccc solid;
+
+  border-radius: 5pt;
+  -moz-border-radius: 5pt;
+  -webkit-border-radius: 5pt;
+
+  padding-top: 3pt;
+  padding-bottom: 3pt;
+}
+
+.signup button:focus, .signup button {
+  outline: 0;
+}
+
+.signup button:active {
+  color: #aaa;
+} 
+
+span.error, span.note {
+  display: block;
+  font-style: italic;
+  font-weight: bold;
+}
+
+span.error {
+  color: #e00;
+}
