@@ -1,4 +1,10 @@
 Brelissa::Application.routes.draw do
+  resources :important_dates, :only => :index
+  resources :newsletter, :only => :index
+  resources :photos, :only => [:index, :show]
+  resources :rsvp, :only => [:index, :new, :create]
+  resources :accomodations, :only => :index
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

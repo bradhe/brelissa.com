@@ -5,15 +5,70 @@
   <%= stylesheet_link_tag :all %>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
   <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-21442806-1']);
-    _gaq.push(['_trackPageview']);
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-21442806-1']);
+_gaq.push(['_trackPageview']);
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+var months = {
+  'march': { 
+      days: 31,
+      events: { 3: "Brad's birthday" }
+  },
+  'april': { 
+    days: 30,
+    events: { 24: "Melissa's birthday" }
+  },
+  'may': { days: 31 },
+  'june': { days: 30 },
+  'july': { days: 31 },
+  'august': { days: 31},
+  'september': { 
+    days: 30,
+    events: { 5: "Book hotel (Mark Spencer)" }
+  },
+  'october': { 
+    days: 31,
+    events: { 8: "Wedding day!" }
+  }
+};
+
+$('.calendar a').live('click', function() {
+  // Kill the other calendars.
+  $('table.calendar.days').remove();
+  $('div.month.selected').removeClass('selected');
+  
+  var div = $(this).parents('div.month');
+  var monthName = div.attr('data-month');
+  var month = months[monthName];
+  div.addClass('selected');
+  
+  var table = $('<table/>').addClass('calendar days ' + monthName);
+  var numberDays = parseInt(month.days);
+  var breakAt = Math.ceil(numberDays / 2);
+  
+  var tr = $('<tr/>').appendTo(table);
+  for(var i = 0; i < numberDays; i++) {
+      if(i == breakAt) {
+          tr = $('<tr/>').appendTo(table);
+      }
+      
+      var td = $('<td/>').attr('valign', 'top').appendTo(tr);
+      td.text(i + 1);
+      
+      if(month.events && month.events[i + 1]) {
+          td.append($('<span/>').addClass('event').text(month.events[i+1]));
+      }
+  }
+  
+  $('.calendar .events').hide();
+  $('.calendar').after(table);
+});
   </script>
 
   <%= csrf_meta_tag %>
@@ -21,7 +76,124 @@
 </head>
 <body>
 
-<%= yield %>
+<div id="top">
+    <div class="march">&nbsp;</div>
+    <div class="april">&nbsp;</div>
+    <div class="may">&nbsp;</div>
+    <div class="june">&nbsp;</div>
+    <div class="july">&nbsp;</div>
+    <div class="august">&nbsp;</div>
+    <div class="september">&nbsp;</div>
+    <div class="october">&nbsp;</div>
+</div>
+  
+<div id="content">
+  <div class="menu">
+      <h2>What's up?</h2>
+      
+      <div class="links">
+          <ul>
+              <li class="dates"><%= link_to 'Important Dates', important_dates_path %></li>
+              <li class="news"><%= link_to 'News & Updates', newsletter_index_path %></li>
+              <li class="rsvp"><%= link_to 'RSVP', rsvp_index_path %></li>
+              <li class="accomodations"><%= link_to 'Accomodation Info', accomodations_path %></li>
+              <li class="venue"><%= link_to 'Venue Info', 'http://www.ecotrust.org/events/terrace.html', :target => "_blank" %></li>
+              <li class="contact"><%= link_to 'Contact Us', 'mailto:mwardheller@gmail.com' %></li>
+          </ul>
+      </div>
+      
+      <div class="under-links">
+        &nbsp;
+      </div>
+  </div>
+
+  <%= yield %>
+</div>
+
+<div id="bottom">
+  <h2>Upcoming Events</h2>
+  <div class="calendar">
+      <div class="month march" data-month="march">
+          <span class="title">
+              <span class="num">03</span>
+              <span class="name"><a href="javascript:void(0);">March</a></span>
+              <span class="tag">luck o' the green?</span>
+          </span>
+          
+          <div class="events"></div>
+      </div>
+      
+      <div class="month april" data-month="april">
+          <span class="title">
+              <span class="num">04</span>
+              <span class="name"><a href="javascript:void(0);">April</a></span>
+              <span class="tag">showers</span>
+          </span>
+          
+          <div class="events"></div>
+      </div>
+      
+      <div class="month may" data-month="may">
+          <span class="title">
+              <span class="num">05</span>
+              <span class="name"><a href="javascript:void(0);">May</a></span>
+              <span class="tag">bring more showers</span>
+          </span>
+          
+          <div class="events"></div>
+      </div>
+      
+      <div class="month june" data-month="june">
+          <span class="title">
+              <span class="num">06</span>
+              <span class="name"><a href="javascript:void(0);">June</a></span>
+              <span class="tag">is it sunny yet?</span>
+          </span>
+          
+          <div class="events"></div>
+      </div>
+      
+      <div class="month july" data-month="july">
+          <span class="title">
+              <span class="num">07</span>
+              <span class="name"><a href="javascript:void(0);">July</a></span>
+              <span class="tag">summer lovin'</span>
+          </span>
+          
+          <div class="events"></div>
+      </div>
+      
+      <div class="month august" data-month="august">
+          <span class="title">
+              <span class="num">08</span>
+              <span class="name"><a href="javascript:void(0);">August</a></span>
+              <span class="tag">...and the livin' is easy</span>
+          </span>
+          
+          <div class="events"></div>
+      </div>
+      
+      <div class="month september" data-month="september">
+          <span class="title">
+              <span class="num">09</span>
+              <span class="name"><a href="javascript:void(0);">September</a></span>
+              <span class="tag">almost there!</span>
+          </span>
+          
+          <div class="events"></div>
+      </div>
+      
+      <div class="month october" data-month="october">
+          <span class="title">
+              <span class="num">10</span>
+              <span class="name"><a href="javascript:void(0);">October</a></span>
+              <span class="tag">drumroll please...</span>
+          </span>
+          
+          <div class="events"></div>
+      </div>
+  </div>
+</div>
 
 </body>
 </html>

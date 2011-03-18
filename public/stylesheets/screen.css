@@ -1,80 +1,281 @@
+body, body * {
+    margin: 0;
+    padding: 0;
+}
 body {
-  font-family: Georgia; 
+    background-color: #A9A679;
+    font-family: georgia;
 }
 
-.landing-photo {
-  padding: 10pt;
-  background-color: #ebebeb;
+h1, h2, h3, h4, h5, div.links li, div.month .num, div.month .name, div.month .tag{
+    font-family: 'Myriad Pro', verdana;
+}
 
+#top, #content, #bottom {
+    width: 937px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#top {
+    padding-bottom: 40px;
+}
+
+#content, #content div.menu, div.right.solo {
+    min-height: 440px;
+}
+
+#content div.menu {
+    display: inline-block;
+    background-color: #54C2B9;
+    float: left;
+    width: 233px;
+}
+
+.right.blog, .right.pics, #content div.menu, .right.portland {
+    border: 1.5px #000 dashed;
+}
+
+div.menu h2 {
+  font-size: 24pt;
+  margin-top: 12pt;
+  margin-left: 7pt;
+  font-weight: normal;
+  margin-bottom: 75px;
+}
+
+div.menu div.links, div.menu div.under-links {
+  width: 245px;
+  position: relative;
+  left: -6px;
+  background-color: #3A7F78;  
+}
+
+div.menu div.under-links {
+  background-image: url('/images/menu-bottom.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-color: transparent !important;
+}
+
+div.links li {
+    list-style-position: inside;
+    font-size: 15pt;
+}
+
+div.links a {
+  color: #000;
+}
+
+div.links ul {
+  padding-top: 10pt;
+  min-height: 161px;
+  padding-left: 25pt;
+}
+
+div.right.solo {
+  background-color: #F9F6BB;
+  border: 1pt #000 dashed;
+  float: left;
+  width: 699px;
+  
+  border-left: none;
+}
+
+div.month, #top div {
+    display: inline-block;
+    float: left;
+    width: 117px;
+}
+
+div.month .num, div.month .name, div.month .tag {
+    display: block;
+    margin-left: 4pt;
+}
+
+div.month a {
+  color: #000;
+}
+
+div.month .name {
+    text-transform: uppercase;
+}
+
+div.month .num {
+    font-weight: bold;
+}
+
+div.month .tag {
+    font-size: 8pt;
+}
+
+div.month .events {
+    min-height: 44px;
+}
+
+.march .events, #top .march, table.march {
+    background-color: #f9f6bb;
+}
+
+.april .events, #top .april, table.april {
+    background-color: #f68c44;
+}
+
+.may .events, #top .may, table.may {
+    background-color: #c66f34;
+}
+
+.june .events, #top .june, table.june {
+    background-color: #54c2b9;
+}
+
+.july .events, #top .july, table.july {
+    background-color: #3a7f78;
+}
+
+.august .events, #top .august, table.august {
+    background-color: #5c1c58;
+}
+
+.september .events, #top .september, table.september {
+    background-color: #2a1229;
+    color: #fff;
+}
+
+.october .events, #top .october, table.october {
+    background-color: #f9f6bb;
+}
+
+.month .title {
+    display: block;
+    margin-bottom: 20px;
+}
+
+#bottom h2 {
+    font-size: 15pt;
+    font-weight: normal;
+    
+    margin-top: 8px;
+    margin-left: 5px;
+    margin-bottom: 8px;
+}
+
+#bottom {
+    height: 200px;
+}
+
+#top div {
+    height: 15px;
+}
+
+table.calendar.days {
+    width: 100%;
+}
+
+table.calendar.days td {
+    height: 40px;
+}
+
+table.calendar.days tr {
+    padding-bottom: 10pt;
+} 
+
+div.selected, div.selected a {
+  color: #54C2B9;
+}
+
+div.selected a:focus, div.month a {
+  outline: none;
+}
+
+table.calendar.days span.event {
+  clear: both;
+  display: block;
+  font-size: 8pt;
+  margin-top: 5px;
+  width: 10px;
+}
+
+.right.blog, .right.pics, .right.portland {
+  float: left;
+  height: 440px;
+  width: 232px;
+  border-left: none;
+}
+
+.right.blog {
+  background-color: #F9F6BB;
+}
+
+.right.pics {
+  background-color: #F68C44;
+}
+
+.right.portland {
+  background-color: #5C1C58;
+  color: #fff;
+}
+
+.right h3, .right .nav, .right img, .right h4, .right .note {
+  margin-left: 8px;
+}
+
+.right .note, .right.blog img {
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.right.blog .note, .right.portland .note {
+  margin-top: 8px;
+}
+
+.right h3, .right ul {
+  margin-top: 8px;
+}
+
+.right ul {
+  margin-left: 20pt;
+}
+
+.right a, .right p, .right h4, ul.portland-highlights, ul.login-info {
+  color: #965729;
+}
+
+h4.sub {
+  margin-top: 8px;
+}
+
+img.union-station {
+  position: relative;
+  top: -50px;
+  left: 65px;
+}
+
+.links li.dates {
+  list-style-image: url('/images/dates-list-icon.png');
+}
+.links li.news {
+  list-style-image: url('/images/news-list-icon.png');
+}
+.links li.rsvp {
+  list-style-image: url('/images/rsvp-list-icon.png');
+}
+.links li.accomodations {
+  list-style-image: url('/images/accomodations-list-icon.png');
+}
+.links li.venue {
+  list-style-image: url('/images/venue-list-icon.png');
+}
+.links li.contact {
+  list-style-image: url('/images/contact-us-list-icon.png');
+}
+
+.field_with_errors {
   display: inline-block;
+}
+
+.note.newsletter {
   margin-left: auto;
   margin-right: auto;
-}
-
-h1 {
-  text-align: center;
-}
-
-.landing-photo, .landing-photo img {
-  border: 1px #ccc solid;
-}
-
-.signup {
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-
-  height: 200px;
-}
-
-.signup h2 {
-  margin-bottom: 0;
-} 
-
-.signup p {
-  width: 518px;
-  margin-top: 0;
-  font-family: arial;
-  font-style: italic;
-}
-
-.signup input {
-  width: 400px;
-  font-size: 16pt;
-} 
-
-.signup button {
-  font-size: 16pt;
-  background-color: #ebebeb;
-  border: 1px #ccc solid;
-
-  border-radius: 5pt;
-  -moz-border-radius: 5pt;
-  -webkit-border-radius: 5pt;
-
-  padding-top: 3pt;
-  padding-bottom: 3pt;
-}
-
-.signup button:focus, .signup button {
-  outline: 0;
-}
-
-.signup button:active {
-  color: #aaa;
-} 
-
-span.error, span.note {
-  display: block;
-  font-style: italic;
-  font-weight: bold;
-}
-
-span.note {
-  display: block;
-  text-align: center;
-}
-
-span.error {
-  color: #e00;
+  display: table !important;
 }

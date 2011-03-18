@@ -1,0 +1,27 @@
+<div class="right solo">
+  <h3>News &amp; Updates</h3>
+    
+  <div class="nav">
+    <%= link_to 'Home', root_url %>
+  </div>
+  
+  <h4 class="sub">Sign up to get regular updates</h4>
+  <p class="note">But not too regular...we hate spam as much as you do.</p>
+  
+  <div class="newsletter note">
+    <% unless @newsletter_signup.errors.empty? %>
+    <ul class="errors">
+      <% @newsletter_signup.errors.each do |element,msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    <% end %>
+    
+    <% form_for @newsletter_signup, :url => newsletter_signup_path do |f| %>
+      <%= f.label :email, 'Email Address:' %>
+      <%= f.email_field :email %>
+      
+      <%= f.submit 'Sign up' %>
+    <% end %>
+  </div>
+</div>
