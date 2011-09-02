@@ -11,7 +11,7 @@ h1, h2, h3, h4, h5, div.links li, div.month .num, div.month .name, div.month .ta
     font-family: 'Myriad Pro', verdana;
 }
 
-#top, #content, #bottom {
+#top, #content, #bottom, div.flash {
     width: 937px;
     margin-left: auto;
     margin-right: auto;
@@ -278,4 +278,45 @@ img.union-station {
   margin-left: auto;
   margin-right: auto;
   display: table !important;
+}
+
+div.field.first {
+  margin-top: 20px;
+}
+
+div.field, div.buttons {
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+
+input.names {
+  width: 200px;
+}
+
+input.number {
+  width: 55px;
+}
+
+div.field label {
+  width: 200px;
+  display: inline-block;
+}
+
+span.error {
+  display: block;
+  border: 1px #c66fc4 solid;
+  background-color: #f68c44;
+  color: #fff;
+  padding: 3px 10px;
+  margin: 10px 0px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+
+h3.notice {
+  border: 1px #c66fc4 solid;
+  background-color: #f68c44;
+  color: #fff;
+  padding: 3px 10px;
+  margin-bottom: 20px;
 }

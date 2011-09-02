@@ -1,10 +1,30 @@
 <div class="right solo">
-  <h3>RSVP - Comming Soon</h3>
+  <h3>RSVP</h3>
   <div class="nav">
     <%= link_to 'Home', root_url %>
   </div>
-  
-  <h4 class="sub">We haven't set an RSVP date yet!</h4>
-  
-  <p class="note">But if you <%= link_to 'sign up for our newsletter', newsletter_index_path %> we will let you know when we have it set!</p>
+
+  <%= form_for(@rsvp, :url => rsvp_index_path) do |f| %>
+    <div class="first field">
+      <%= f.label :adults, 'Number of Adults:' %>
+      <%= f.text_field :adults, :class => 'number' %>
+      <%= error_for(@rsvp, :adults) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :children, 'Number of Children:' %>
+      <%= f.text_field :children, :class => 'number' %>
+      <%= error_for(@rsvp, :children) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :names, 'Names of People Attending:' %>
+      <%= f.text_field :names, :class => 'names' %>
+      <%= error_for(@rsvp, :names) %>
+    </div>
+
+    <div class="buttons">
+      <%= f.submit 'Submit RSVP' %>
+    </div>
+  <%- end %>
 </div>

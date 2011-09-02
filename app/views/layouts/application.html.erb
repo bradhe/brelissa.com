@@ -86,7 +86,13 @@ $('.calendar a').live('click', function() {
     <div class="september">&nbsp;</div>
     <div class="october">&nbsp;</div>
 </div>
-  
+
+<%- if flash[:notice] %>
+  <div class="flash">
+    <h3 class="notice"><%= flash[:notice] %></h3>
+  </div>
+<%- end %>
+
 <div id="content">
   <div class="menu">
       <h2>What's up?</h2>

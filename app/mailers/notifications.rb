@@ -13,4 +13,12 @@ class Notifications < ActionMailer::Base
       format.html
     end
   end
+
+  def rsvp(rsvp)
+    @rsvp = rsvp
+
+    mail(:subject => "RSVP: #{rsvp.names}", :to => 'wardmel@gmail.com') do |format|
+      format.html
+    end
+  end
 end
